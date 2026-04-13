@@ -84,19 +84,19 @@ WSGI_APPLICATION = 'forms.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'webdev',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost'
-    },
-     "production":
-        dj_database_url.config(
-            default='postgresql://postgres:postgres@localhost:5432/formsApp',
-            conn_max_age=600
-        ),
-    
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'webdev',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '1234',
+    #     'HOST': 'localhost'
+    # },
+    #  "production":
+    #     dj_database_url.config(
+    #         default='postgresql://postgres:postgres@localhost:5432/formsApp',
+    #         conn_max_age=600
+    #     ),
+    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
 # postgresql://webdev_kxbz_user:5nGnXPW22GNKK8wiEsREP9GiQGWtEKUm@dpg-d7eh0itckfvc73c1edag-a/webdev_kxbz
 
