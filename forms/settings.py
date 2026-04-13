@@ -91,7 +91,7 @@ DATABASES = {
         'PASSWORD': '1234',
         'HOST': 'localhost'
     },
-    "production":
+     "production":
         dj_database_url.config(
             default='postgresql://postgres:postgres@localhost:5432/mysite',
             conn_max_age=600
