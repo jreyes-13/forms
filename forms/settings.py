@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-x27yo$y_@bc)v20m&+c5_-=bl)cew)tcii14i!t!$r6c$r##16'
-SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='unsecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -93,8 +93,7 @@ DATABASES = {
     },
      "production":
         dj_database_url.config(
-            # default='postgresql://postgres:postgres@localhost:5432/formsApp',
-            default=os.environ.get('DATABASE_URL'),
+            default='postgresql://postgres:postgres@localhost:5432/formsApp',
             conn_max_age=600
         ),
     
@@ -146,4 +145,4 @@ if not DEBUG:
     # django internal mapping 
     STATIC_ROOT = BASE_DIR / "assets"
 
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILE_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
