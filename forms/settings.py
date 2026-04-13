@@ -93,7 +93,8 @@ DATABASES = {
     },
      "production":
         dj_database_url.config(
-            default='postgresql://postgres:postgres@localhost:5432/formsApp',
+            # default='postgresql://postgres:postgres@localhost:5432/formsApp',
+            default=os.environ.get('DATABASE_URL'),
             conn_max_age=600
         ),
     
